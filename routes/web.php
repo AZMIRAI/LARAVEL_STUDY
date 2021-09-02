@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,11 @@ Route::get('/hi', function () {
     return view('hello');
     // return "Hi~ Hello World";
 });
+
+// Route::get('/posts', [PostsController::class, 'index']);
+// Route::get('/create', [PostsController::class, 'create']);
+// Route::get('/store', [PostsController::class, 'store']);
+
+Route::resource('/posts', PostsController::class);
 
 
