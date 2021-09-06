@@ -1,5 +1,13 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 
-@section('content')
-    <h2>블레이드 템플릿 파일을 재사용한 welcome </h2>
-@endsection
+<x-guest-layout>
+    <x-slot name="header">
+{{-- @section('content') --}}
+    <h2 class="font"-semibold>{{__('home')}}</h2>
+{{-- @endsection --}}
+    </x-slot>
+    <x-post-list :posts="$posts" />
+</x-guest-layout>
+
+
+

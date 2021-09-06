@@ -14,27 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return "Hi~ Hello World";
-});
-// Route::get('/login', function () {
-//     return view('welcome');
-//     // return "Hi~ Hello World"
-// })->name ('login');
-Route::get('/layout', function () {
-    return view('layouts/app');
-    // return "Hi~ Hello World";
-});
-Route::get('/hi', function () {
-    return view('hello');
-    // return "Hi~ Hello World";
-});
-
-// Route::get('/posts', [PostsController::class, 'index']);
-// Route::get('/create', [PostsController::class, 'create']);
-// Route::get('/store', [PostsController::class, 'store']);
-
-Route::resource('/posts', PostsController::class);
+// 리소스를 줄때는  자동으로 이름을 준다
+Route::resource('/posts', PostsController::class)
+    ->middleware (['auth']);
 
 
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
