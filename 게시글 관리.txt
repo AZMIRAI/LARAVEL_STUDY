@@ -1,0 +1,42 @@
+게시글 관리
+	게시글등록
+		- 등록 페이지 요청 처리(컨트롤러 클래스의 create)
+		- 등록 요청 처리 (컨트롤러 클래스의 store)
+	게시글수정
+		- 수정페이지 요청 처리(edit)
+		- 수정 요청 처리(update)
+	게시글 목록
+		- 목록 페이지 처리 (index)
+	게시글 상세보기
+		- 상세보기 페이지 처리(show)
+	게시글삭제
+		- 삭제요청 처리(destory)
+
+php artisan make:controller PostsController --resource
+
+web.php
+
+Route::get('posts', [PostController::class, 'index']);
+Route::get('posts/{post}', [PostController::class, 'show']
+....
+
+Route::resource('posts',PostController::class);
+
+web brower -> web server
+
+     요청을 보내는 것http method
+		 GET : 서버자원을 읽고자 할때(목록주세요)
+
+		 POST : 서버 자원을 변경하고자 할때
+			보안 떄문에 라라벨은 추가로 csrf 토큰을 요구
+			방법 :  1. X-XRF-TOKEN 헤더로 보내거나
+			       2. _token 파라미터로 보내거나.
+			DELETE
+			PATCH
+			PUT		 
+			2개중 한 방식으로 보냄 
+		 METHOD SPOOFING
+		 _method : 'DELETE'
+		 _method : 'PUT'
+
+a태그는 무조건 get방식

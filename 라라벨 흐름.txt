@@ -1,0 +1,14 @@
+php artisan serve 
+
+실행
+
+app -> http -> views -> component -> PostList.php
+
+views -> component -> post-list.blade.php
+
+Web.php -> PostController @ index -> DB Posts 테이블에서 모든 레코드 들을 읽어 오는 것 그 놈을 bbs 폴더 밑 index.blade.php -> index.blade.php ($posts전달)
+
+<x-post-list> 갖다 쓰자
+<x-post-list :posts ="$posts"> 
+
+생성자 -> 퍼블릭 
